@@ -1,0 +1,40 @@
+package array;
+import java.util.*;
+public class stringRotation {
+	private static boolean isAnagram(String x,String y) {
+		char[] str1=x.toCharArray();
+		char[] str2=y.toCharArray();
+		Arrays.sort(str1);
+		Arrays.sort(str2);
+		return new String(str1).equals(new String(str2));
+	}
+	public static void main(String[] args) throws Exception {
+		// TODO Auto-generated method stub
+		Scanner sc=new Scanner(System.in);
+		//main string
+		String str=sc.next();
+		//no of rotation
+		int n=sc.nextInt();
+		String originalString=str;
+		String FirstCharString="";
+		for(int i=1;i<=n;i++)
+		{
+			String dir=sc.next();
+			int x=sc.nextInt();
+			if(dir.equalsIgnoreCase("L"))
+			  str=str.substring(x)+str.substring(0,x);
+			else if(dir.equalsIgnoreCase("R"))
+				str=str.substring(str.length()-x)+str.substring(0,str.length()-x);
+			FirstCharString+=str.charAt(0);
+		}
+		for(int i=0;i<originalString.length()-n;i++)
+		{
+			if(isAnagram(originalString.substring(i,i+n),FirstCharString)) {
+				System.out.println("yes");
+			     return;
+			}
+		}
+		System.out.println("no");	
+	}
+
+}
