@@ -1,0 +1,19 @@
+package array;
+import java.util.*;
+public class str {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc=new Scanner(System.in);
+		char[] str1=sc.next().toCharArray();
+		char[] str2=sc.next().toCharArray();
+		Arrays.sort(str1);
+		Arrays.sort(str2);
+		if(new String(str1).equals(new String(str2)))
+			System.out.println("Anagram");
+		else
+			System.out.println("not an anagram");
+		
+	}
+
+}
